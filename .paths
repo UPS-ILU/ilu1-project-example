@@ -1,0 +1,16 @@
+.
+bin
+bin/domain
+bin/main
+bin/scenarios
+ocaml
+ocaml/ocaml-cli
+ocaml/ocaml-cli/._d
+ocaml/ocaml-cli/._d/src
+ocaml/ocaml-cli/examples
+ocaml/ocaml-cli/src
+src
+src/domain
+src/main
+src/scenarios
+/usr/local/lib/ocaml
