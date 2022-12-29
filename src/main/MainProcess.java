@@ -1,6 +1,7 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,11 +9,17 @@ import java.util.Arrays;
 
 public class MainProcess {
 
+	private static final String CRUD_ARGS = "persist -C 1 Migeon Frederic False 0 0 -- etudiants.csv";
+	private static final String OCAML_CLI_DIR = "ocaml-cli";
+	private static final String OCAML_DIR = "ocaml";
+
 	public static void main(String[] args) {
-		String[] params = new String [3];
-	    params[0] = "/Users/migeon/workspaces/ILUProjectWorkspace/ILU1ProjectExample/ocaml/ocaml-cli/main.exe";
-	    params[1] = "10";
-	    params[2] = "20";
+		String projectPath = System.getProperty("user.dir");
+		String ocamlCLIpath = projectPath + File.separator + OCAML_DIR + File.separator + OCAML_CLI_DIR;
+		System.out.println("Path = " + ocamlCLIpath);
+
+		String []  params = CRUD_ARGS.split(" ");
+	    params[0] = ocamlCLIpath + File.separator + params[0];
 
 		Process process;
 		try {

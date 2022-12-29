@@ -17,21 +17,20 @@ let column_number column_name csvname = match csvname with
 			| "Nom" -> 2
 			| "Prenom" -> 3
 			| "Tiers-Temps" -> 4
-			| "keyEpreuve" -> 5
-			| "keyModule" -> 6
 			| _  -> failwith ("Wrong field name for " ^ csvname))
 | "epreuves.csv" -> (match column_name with
 			| "Key" -> 1
 			| "Nom" -> 2
-			| "keyEtudiant" -> 3
 			| "keyModule"  -> 4
 			| _  -> failwith ("Wrong field name for " ^ csvname))
 | "modules.csv" -> (match column_name with
 			| "Key" -> 1
 			| "Nom" -> 2
 			| "NbECTS" -> 3
-			| "keyEtudiant" -> 4
-			| "keyEpreuve" -> 5
+			| _  -> failwith ("Wrong field name for " ^ csvname))
+| "inscriptions.csv" -> (match column_name with
+			| "INE" -> 1
+			| "nomModule" -> 2
 			| _  -> failwith ("Wrong field name for " ^ csvname))
 | _  -> failwith "Wronf csv filename"
 
@@ -137,7 +136,7 @@ let delete_fn arg_list csvname =
 
 (* Tests *)
 (*
-./persist -C 1 Migeon Frederic False 0 0 -- etudiants.csv
+./persist -C 1 Migeon Frederic False -- etudiants.csv
 ./persist -C 1 CC1 1 KINXIL11 -- epreuves.csv
 ./persist -C 1 ILU1 6 1 1 -- modules.csv
 
