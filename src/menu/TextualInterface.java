@@ -60,7 +60,7 @@ public class TextualInterface {
 	 * Enregistre l'intégralité des données du domaine métier en "base de données".
 	 */
 	public void enregistrerDonnees() {
-		control.enregistrerDonnes();
+		control.enregistrerDonnees();
 	}
 
 	/**

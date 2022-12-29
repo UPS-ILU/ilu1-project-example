@@ -26,7 +26,7 @@ public class Controller {
 		
 	}
 
-	public void enregistrerDonnes() {
+	public void enregistrerDonnees() {
 		dao.enregistreLesEtudiants(lesEtudiants);
 		dao.enregistreLesModules(lesModules);
 		dao.enregistreLesEpreuves(lesEpreuves);

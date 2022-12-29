@@ -21,7 +21,7 @@ let column_number column_name csvname = match csvname with
 | "epreuves.csv" -> (match column_name with
 			| "Key" -> 1
 			| "Nom" -> 2
-			| "keyModule"  -> 4
+			| "nomModule"  -> 4
 			| _  -> failwith ("Wrong field name for " ^ csvname))
 | "modules.csv" -> (match column_name with
 			| "Key" -> 1
@@ -31,6 +31,11 @@ let column_number column_name csvname = match csvname with
 | "inscriptions.csv" -> (match column_name with
 			| "INE" -> 1
 			| "nomModule" -> 2
+			| _  -> failwith ("Wrong field name for " ^ csvname))
+| "convocations.csv" -> (match column_name with
+			| "INE" -> 1
+			| "nomEpreuve" -> 2
+			| "nomModule" -> 3
 			| _  -> failwith ("Wrong field name for " ^ csvname))
 | _  -> failwith "Wronf csv filename"
 
@@ -46,6 +51,7 @@ let create_fn arg_list csvname =
 	let () = Libcsv.save_csv filename new_content in
 	[] (* return [] when no error *)
 
+(* --------- READ ----------------*)
 let read_fn arg_list csvname =
 	let filename = Libunix.get_data_filename data_directory csvname in
 	let content = Libcsv.load_csv filename in
@@ -68,6 +74,7 @@ let read_fn arg_list csvname =
 	| ["-last"; column_name; value]  -> find_last (column_number column_name csvname) value content
 	| _ -> failwith "Wrong argument for READ operation"
 	
+(* --------- UPDATE ----------------*)	
 let update_fn arg_list csvname =
 	let filename = Libunix.get_data_filename data_directory csvname in
 	let content = Libcsv.load_csv filename in
@@ -100,7 +107,7 @@ let new_content = match arg_list with
 	let () = Libcsv.save_csv filename new_content in
 	[] (* return [] when no error *)
 
-
+(* --------- DELETE ----------------*)
 let delete_fn arg_list csvname = 
 	let filename = Libunix.get_data_filename data_directory csvname in
 	let content = Libcsv.load_csv filename in
