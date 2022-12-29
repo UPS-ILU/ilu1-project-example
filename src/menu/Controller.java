@@ -1,15 +1,11 @@
 package menu;
 
 import dao.DataAccessObject;
-import domain.Enseignement;
-import domain.Epreuve;
-import domain.Etudiant;
 
 public class Controller {
 
-	private Etudiant[] lesEtudiants;
-	private Epreuve[] lesEpreuves;
-	private Enseignement[] lesModules;
+	// définition d'attributs supplémentaires si nécessaire
+	// pour stocker les objets initialisés depuis les fichiers csv
 	
 	private DataAccessObject dao;
 	
@@ -17,19 +13,12 @@ public class Controller {
 		this.dao = dao;
 	}
 	
-	public void lireBaseDonnees() {
-		lesEtudiants = dao.chargeTousLesEtudiants();
-		lesModules = dao.chargeTousLesEnseignements();
-		lesEpreuves = dao.chargeToutesLesEpreuvesEtRelieLesModules(lesModules);
-		dao.chargeLesInscriptions(lesEtudiants, lesModules);
-		dao.chargeLesConvocations(lesEtudiants,lesEpreuves, lesModules);
-		
+	public void lireBaseDonnees() {		
+		// utilisation de méthodes de l'objet dao pour lire les données
 	}
 
 	public void enregistrerDonnees() {
-		dao.enregistreLesEtudiants(lesEtudiants);
-		dao.enregistreLesModules(lesModules);
-		dao.enregistreLesEpreuves(lesEpreuves);
+		// utilisation de méthodes de l'objet dao pour enregistrer les données
 	}
 
 }

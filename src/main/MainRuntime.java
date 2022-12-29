@@ -5,9 +5,12 @@ import java.io.IOException;
 public class MainRuntime {
 
 	public static void main(String[] args) {
-		String[] params = new String [3];
-	    params[0] = "/Users/migeon/cloudIrit/Enseignement/Accreditation2021_2026/LFLEX/ILU1/Projet/POC/ups-ilu1-ocaml-examples/ocaml-cli/persist";
-	    params[1] = "-C 1 Migeon Frederic False 0 0 -- etudiants.csv";
+		String[] params = new String [5];
+	    params[0] = "ocaml/ocaml-cli/main.exe";
+	    params[1] = "sum";
+	    params[2] = "--";
+	    params[3] = "10";
+	    params[4] = "20";
 	    try {
 			Runtime.getRuntime().exec(params);
 		} catch (IOException e) {

@@ -18,9 +18,9 @@ public class TextualInterface {
 	 */
 	public void mainMenu() {
 		System.out.println("1. Lire les données de la base");
-		System.out.println("2. Travailler sur les étudiants (consulter, modifier, supprimer)");
-		System.out.println("3. Travailler sur les épreuves (consulter, modifier, supprimer)");
-		System.out.println("4. Travailler sur les modules (consulter, modifier, supprimer)");
+		System.out.println("2. ");
+		System.out.println("3. ");
+		System.out.println("4. ");
 		System.out.println("5. ");
 		System.out.println("6. ");
 		System.out.println("0. Exit\n");

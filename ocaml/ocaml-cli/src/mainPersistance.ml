@@ -29,8 +29,6 @@ let main_persistance () =
 			| "U" -> Crud_csv.update_fn crud_args filename
 			| "D" -> Crud_csv.delete_fn crud_args filename
 			| _ -> failwith "wrong CRUD option" in
-(*		print_endline (filename ^ "\nCRUD op = " ^ crud_option ^ "\nCRUD args = " ^
-									 (String.concat " " crud_args) ^ "\nResult = " ^ (String.concat " " (List.flatten result))) *)
 		print_endline (String.concat "\n" (List.map (String.concat " ") result))
 		
 let () = main_persistance ()
